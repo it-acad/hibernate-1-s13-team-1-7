@@ -1,3 +1,14 @@
+CREATE TABLE IF NOT EXISTS users(
+id INTEGER NOT NULL PRIMARY KEY,
+first_name varchar NOT NULL,
+last_name varchar NOT NULL,
+email varchar NOT NULL,
+password varchar NOT,NULL,
+role_id INTEGER FOREIGN KEY
+
+);
+
+
 INSERT INTO roles (id, name) VALUES (1, 'ADMIN');
 INSERT INTO roles (id, name) VALUES (2, 'USER');
 
