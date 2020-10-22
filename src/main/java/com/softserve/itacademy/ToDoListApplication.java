@@ -47,14 +47,14 @@ public class ToDoListApplication implements CommandLineRunner {
 
         validUser = userRepository.save(validUser);
 
-        ToDo toDo = new ToDo();
-        toDo.setTitle("Other");
-        toDo.setOwner(validUser);
-        toDo = toDoRepository.save(toDo);
-
-        LocalDate localDate = toDo.getCreatedAt().toLocalDate();
-        LocalDate today = LocalDate.now();
-        System.out.println(localDate.equals(today));
+//        ToDo toDo = new ToDo();
+//        toDo.setTitle("Other");
+//        toDo.setOwner(validUser);
+//        toDo = toDoRepository.save(toDo);
+//
+//        LocalDate localDate = toDo.getCreatedAt().toLocalDate();
+//        LocalDate today = LocalDate.now();
+//        System.out.println(localDate.equals(today));
 
 
 
