@@ -10,11 +10,7 @@ import java.util.List;
 @Entity
 @Table(name = "roles")
 public class Role {
-
-    public void setId(long id) {
-        this.id = id;
-    }
-
+    
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
@@ -32,6 +28,11 @@ public class Role {
 
     public long getId() {
         return id;
+    }
+    
+
+    public void setId(long id) {
+        this.id = id;
     }
 
     public String getName() {
