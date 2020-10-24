@@ -4,28 +4,24 @@ import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.Parameter;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.*;
 import java.util.List;
 
 @Entity
 @Table(name = "roles")
 public class Role {
 
+    public void setId(long id) {
+        this.id = id;
+    }
+
     @Id
-    @GeneratedValue(generator = "sequence-generator")
-    @GenericGenerator(
-            name = "sequence-generator",
-            strategy = "org.hibernate.id.enhanced.SequenceStyleGenerator",
-            parameters = {
-                    @Parameter(name = "sequence_name", value = "role_sequence"),
-                    @Parameter(name = "initial_value", value = "10"),
-                    @Parameter(name = "increment_size", value = "1")
-            }
-    )
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    @NotBlank(message = "The roleName cannot be empty")
-    @Column(nullable = false, unique = true)
+    @NotNull
+    @NotEmpty
+    @Size(min = 2, max = 100)
     private String name;
 
     @OneToMany(mappedBy = "role")
@@ -52,14 +48,6 @@ public class Role {
 
     public void setUsers(List<User> users) {
         this.users = users;
-    }
-
-    @Override
-    public String toString() {
-        return "Role {" +
-                "id = " + id +
-                ", name = '" + name + '\'' +
-                "} ";
     }
 
 }

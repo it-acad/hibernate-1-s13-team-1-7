@@ -47,6 +47,7 @@ public class ToDoListApplication implements CommandLineRunner {
 
         validUser = userRepository.save(validUser);
 
+
         ToDo toDo = new ToDo();
         toDo.setTitle("Other");
         toDo.setOwner(validUser);

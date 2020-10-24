@@ -23,7 +23,19 @@ class RoleTests {
         ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
         Validator validator = factory.getValidator();
         Set<ConstraintViolation<Role>> violations = validator.validate(emptyRole);
+        assertEquals(2, violations.size());
+    }
+
+    @Test
+    void createValidRole() {
+        Role validRole = new Role();
+        validRole.setName("F");
+        ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
+        Validator validator = factory.getValidator();
+        Set<ConstraintViolation<Role>> violations = validator.validate(validRole);
+
         assertEquals(1, violations.size());
     }
 
 }
+
